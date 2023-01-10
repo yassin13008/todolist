@@ -1,4 +1,5 @@
 <?php
+use App\Model\TaskModel;
 
 // Récupération et validation de l'id de la tâche de l'URL (chaîne de requête)
 if (!array_key_exists('id', $_GET) || !ctype_digit($_GET['id'])) {

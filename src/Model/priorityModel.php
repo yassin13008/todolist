@@ -1,4 +1,10 @@
-<?php class PriorityModel extends AbstractModel {
+<?php 
+
+namespace App\Model;
+
+use App\Core\AbstractModel;
+
+class PriorityModel extends AbstractModel {
 
 function getAllPriorities(): array
 {

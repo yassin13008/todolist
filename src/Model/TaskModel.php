@@ -1,5 +1,9 @@
 <?php
 
+namespace App\Model;
+
+use App\Core\AbstractModel;
+
 class TaskModel extends AbstractModel {
 
 

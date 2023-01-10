@@ -1,5 +1,9 @@
 <?php 
 
+use App\Core\DB;
+use App\Model\TaskModel;
+use App\Model\PriorityModel;
+
 // Récupération et validation de l'id de la tâche de l'URL (chaîne de requête)
 if (!array_key_exists('id', $_GET) || !ctype_digit($_GET['id'])) {
     echo 'Id de la tâche incorrect';

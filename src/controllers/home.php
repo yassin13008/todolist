@@ -1,5 +1,9 @@
 <?php 
 
+namespace App\Model;
+
+use App\Core\AbstractModel;
+
 // Sélections de la liste des tâches
 $taskModel = new TaskModel();
 

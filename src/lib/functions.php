@@ -1,5 +1,8 @@
 <?php 
 
+use App\Core\DB;
+use App\Model\UserModel;
+
 // /**
 //  * Crée une connexion à la base de données avec PDO
 //  * @return PDO l'objet PDO créé

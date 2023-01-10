@@ -1,5 +1,9 @@
 <?php 
 
+use App\Core\DB;
+use App\Model\TaskModel;
+use App\Model\PriorityModel;
+
 // Connexion à la base de données
 // $pdo = getPDOConnection();
 $database = new DB;
