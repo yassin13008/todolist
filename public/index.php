@@ -15,14 +15,16 @@ require '../vendor/autoload.php';
 // Démarrage de la session
 session_start();
 
-// Inclusion des dépendances
+// Inclusion des dépendances manuels
 require '../app/config.php';
 require '../src/lib/functions.php';
-require '../src/Core/AbstractModel.php';
-require '../src/Core/database.php';
-require '../src/Model/TaskModel.php';
-require '../src/Model/priorityModel.php';
-require '../src/Model/UserModel.php';
+// require '../src/Core/AbstractModel.php';
+// require '../src/Core/database.php';
+// require '../src/Model/TaskModel.php';
+// require '../src/Model/priorityModel.php';
+// require '../src/Model/UserModel.php';
+
+// On va le faire avec composer
 
 /**
  * Routing : analyse de l'URL pour savoir sur quelle page on se trouve

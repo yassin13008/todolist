@@ -12,7 +12,7 @@ class DB {
     static function getPDOConnection(): PDO 
     {
         // Connexion à la base de données avec PDO
-        $dsn = 'mysql:dbname='.DB_NAME.';host='.DB_HOST.';charset=utf8;port=3306';
+        $dsn = 'mysql:dbname='.\DB_NAME.';host='.DB_HOST.';charset=utf8;port=3306';
         $user = DB_USER;
         $password = DB_PASS;
         $options = [
