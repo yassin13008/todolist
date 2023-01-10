@@ -1,0 +1,54 @@
+<div class="text-center pt-3 pb-2">
+    <img src="img/a.png" alt="Check" width="60">
+    <h2 class="my-4">Task List</h2>
+</div>
+
+<!-- <div class="text-center pt-3 pb-4">
+    <a href="/add-task" class="btn btn-primary">Nouvelle tâche</a>
+</div> -->
+
+<!-- Affichage du message flash le cas échéant -->
+<?php if ($flashMessage): ?>
+    <div class="alert alert-success text-center pt-3 pb-4"><?=htmlspecialchars($flashMessage);?></div>
+<?php endif; ?>
+
+<table class="table text-white mb-0">
+    <thead>
+        <tr>
+        <th scope="col">Task</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Status</th>
+        <th scope="col">Deadline</th>
+        <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($tasks as $task): ?>
+            <tr class="fw-normal">
+                <td class="align-middle">
+                    <span><?=htmlspecialchars($task['title']);?></span>
+                </td>
+                <td class="align-middle">
+                    <h6 class="mb-0">
+                        <span class="badge <?=getPriorityClass($task['priority_id']);?>">
+                            <?=htmlspecialchars($task['priority']);?>
+                        </span>
+                    </h6>
+                </td>
+                <td class="align-middle">
+                    <span><?=getTaskStatus($task);?></span>
+                </td>
+                <td class="align-middle">
+                    <span><?=dateFormat($task['deadline'])?></span>
+                </td>
+                <td class="align-middle">
+                    <a href="/edit-task?id=<?=intval($task['task_id']);?>" data-mdb-toggle="tooltip" title="Edit">
+                        <i class="fa-solid fa-pen-to-square fa-lg text-primary me-3"></i></a>
+                    <a href="#!" data-mdb-toggle="tooltip" title="Done"><i class="fas fa-check fa-lg text-success me-3"></i></a>
+                    <a href="/delete-task?id=<?= intval( $task['task_id'])?>" data-mdb-toggle="tooltip" title="Delete"><i class="fas fa-trash-alt fa-lg text-warning"></i></a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+    </table>
+                        
