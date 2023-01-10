@@ -3,6 +3,8 @@
 namespace App\Model;
 
 use App\Core\AbstractModel;
+use App\Entity\Task;
+use App\Entity\Priority;
 
 class TaskModel extends AbstractModel {
 
@@ -13,7 +15,7 @@ class TaskModel extends AbstractModel {
 
 
     // Préparation de la requête de sélection
-    $sql = 'SELECT title, isDone, deadline, label AS priority, P.id AS priority_id, T.id AS task_id 
+    $sql = 'SELECT title, isDone, deadline, label AS priority, P.id AS priority_id, T.id AS task_id, createdAt, description 
             FROM task AS T
             INNER JOIN priority AS P
             ON T.priority_id = P.id
@@ -25,11 +27,37 @@ class TaskModel extends AbstractModel {
     $pdoStatement->execute();
 
     // Récupération et retour des résultats de la requête SQL
-    $tasks = $pdoStatement->fetchAll();
+    $results = $pdoStatement->fetchAll();
 
-    if (!$tasks) {
+    if (!$results) {
         return [];
     }
+    // Créations des objets Tasks à partir des résultats
+    $tasks = [];
+
+    foreach($results as $result){
+
+        $priority = new Priority(
+            $result['priority_id'],
+            $result['priority']
+        );
+
+        $task = 
+        new Task(
+        $result['task_id'],
+        $result['title'],
+        $result['description'],
+        $result['createdAt'],
+        $result['isDone'],
+        $result['deadline'],
+        $priority
+        ); 
+    }
+    
+    $tasks[]=$task;
+
+    dump($tasks);
+    dump($tasks);
 
     return $tasks;
 }

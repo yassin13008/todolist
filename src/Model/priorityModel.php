@@ -3,6 +3,7 @@
 namespace App\Model;
 
 use App\Core\AbstractModel;
+use App\Entity\Priority;
 
 class PriorityModel extends AbstractModel {
 
@@ -27,6 +28,31 @@ function getAllPriorities(): array
 
     return $results;
 }
+
+// function getOnePriorityById(int $priorityId): Priority
+// {
+//     // Création d'une connexion PDO
+
+
+//     // Préparation de la requête de sélection
+//     $sql = 'SELECT id, label
+//             FROM priority AS P
+//             WHERE P.id = ?';
+
+//     $pdoStatement = self::$pdo->prepare($sql);
+    
+//     // Exécution de la requête
+//     $pdoStatement->execute([$priorityId]);
+
+//     // Récupération et retour du résultat de la requête SQL
+//     $priority = $pdoStatement->fetch();
+
+//     if (!$priority) {
+//         return [];
+//     }
+
+//     return $priority;
+// }
 
 
 } ?>
